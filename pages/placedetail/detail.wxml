@@ -1,0 +1,42 @@
+<view class="container">
+<view class='nametotal'>{{content.nametotal}}</view>
+<view class='address'>{{content.address}}</view>
+<view class='placeType'>
+   ·{{content.placeType}}·
+</view>
+
+<view class='detailImage'>
+<image src="{{content.detailImage}}"> </image>
+</view>
+
+<view class='visitTime'>
+<image src="../../images/places/visittime.png"></image>
+<text>{{content.timeToVisit}}</text>
+</view>
+<image class='line'  src='../../images/places/line.png'></image>
+
+<view class='openTime'>
+<image src="../../images/places/clock.png"></image>
+<text>{{content.openTime}}</text>
+<button bindtap='deserve' class='reserve'>预 订</button>
+</view>
+
+<view class='gray_divide'></view>
+<view class='instruction'>
+<text>
+{{content.instruction}}
+</text>
+
+<!-- 
+ <web-view src="https://shjcy.dashenw.cn/public/wiki/wiki/lawhome">test</web-view>  -->
+
+
+</view>
+</view>
+<view class='bottom_nav'>
+<text>距离你{{distance}}KM</text>
+<image bindtap='navTo' data-content='{{content}}' src='../../images/places/nav.jpg'> </image>
+<view style='clear:both'></view>
+
+
+</view>

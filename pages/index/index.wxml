@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="container">
+
+<view class="bgImg">
+   <image src='../../images/tysh.jpg'></image>
+ </view>
+   <view class='title'>
+   <text class='sh'>上 海</text>
+   <text>Shang Hai</text>
+   </view>
+
+   <view class='stbtn'>
+         <button bindtap='changeToContent'>开始探索</button>
+   </view >
+           
+</view>

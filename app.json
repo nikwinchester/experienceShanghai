@@ -1,0 +1,14 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/content/content",
+    "pages/placedetail/detail",
+    "pages/activitiesdetail/detail"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "体验上海",
+    "navigationBarTextStyle":"white"
+  }
+}

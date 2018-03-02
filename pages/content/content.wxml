@@ -1,0 +1,67 @@
+<view class="container">
+
+<view class='nav'>
+<view class="{{select1 == true ? 'isOn':'isOff'}}" bindtap='showPlaces' >景点</view>
+<view class="{{select2 == true ? 'isOn':'isOff'}}" bindtap='showMalls'>购物</view>
+<view class="{{select3 == true ? 'isOn':'isOff'}}" bindtap='showFoods'>美食</view>
+<view class="{{select4 == true ? 'isOn':'isOff'}}" bindtap='showTravels'>
+<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+    旅游路线^
+    </view>
+  </picker>
+  </view>
+<view class="{{select5 == true ? 'isOn':'isOff'}}" bindtap='showActivities'>活动</view>
+</view>
+ 
+
+<map wx:if="{{showmap}}" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" controls="{{controls}}" bindcontroltap="controltap" 
+markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location 
+style="width: 100%; height:{{mapheight}};">
+</map> 
+
+
+<view  wx:if="{{showactivities}}" class='activities' wx:for="{{activities}}" wx:key="id" wx:for-index="index" wx:for-item="item">
+   <text class='activitytext'>{{item.name}}</text>
+   <view class='activityimage_wrap'>
+   <image bindtap='activitiesdetail' data-content='{{item}}' class="activityimage" src="{{item.imageUrlOut}}"> </image>
+   </view>
+</view>
+
+
+
+<view  wx:if="{{closeflag}}" class='outSmall'>
+ <image  bindtap='open' class='closeImg()' src='../../images/open.jpg'></image> 
+</view> 
+
+<view  wx:if="{{showflag}}" class='outBig'>
+<view class='close_div' >
+ <image  bindtap='close' class='closeImg()' src='../../images/close.jpg'></image> 
+</view >
+
+ <!-- <scroll-view scroll-x="true" class='content_out' style="white-space: nowrap; display:flex" 
+ upper-threshold="100" scroll-left="0" bindscrolltoupper="toLeft "> 
+    <view  class='bottom_content_display' wx:for="{{showcontents}}" wx:key="id" wx:for-index="index" wx:for-item="item" id="{{item.id}}">
+      <image class='bottom_content_displayImg'  bindtap='detail' data-content='{{item}}' src='{{item.imageUrl}}'></image> 
+        <view class='bottom_content_text'>{{item.name}}</view>  
+        <image   bindtap='navTo' data-content="{{item}}" class='bottom_content_navImg' src='../../images/navgray.png'></image>
+  </view> 
+  </scroll-view>  -->
+
+ <swiper class='content_out' previous-margin="0rpx"  circular="false" current='{{current}}' 
+ previous-margin="150rpx" next-margin='170rpx' circular='true'  bindchange="nowis">
+  <block wx:for="{{showcontents}}" wx:key="id" wx:for-index="index" wx:for-item="item">
+    <swiper-item class='bottom_content_display'>
+    <view class='wrapdisplayimg'>
+      <image class='bottom_content_displayImg'  bindtap='placedetail' data-content='{{item}}' src='{{item.imageUrl}}'></image>
+   </view>
+        <view class="bottom_content_text {{item.onshow == true ? 'onshow':'offshow'}}">{{item.name}}</view>  
+        <image  bindtap='navTo' data-content="{{item}}" class="bottom_content_navImg   "  src="{{item.onshow == true ? '../../images/places/nav.jpg':'../../images/navgray.png'}}"></image>
+    </swiper-item>
+  </block>
+</swiper> 
+
+
+</view>
+
+</view>
